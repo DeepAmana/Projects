@@ -1,0 +1,41 @@
+﻿
+
+@model Videly.RandomMovieViewModel.RandomMovie
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/Scripts/Videly/Main.css" rel="stylesheet" />
+
+</head>
+
+@if (Model.Customers.Count==0)
+{
+    <text>We donot have any customers </text>
+
+}
+else
+{
+    <h2>List of Customers</h2>
+
+<table id="customers">
+
+    <tr>
+        <th>Customers</th>
+    </tr>
+    @foreach (var customer in Model.Customers)
+    {
+        <tr>
+            <td>@Html.ActionLink(customer.Name, "Details", "Movies", new { @name = customer.Name }, null)</td>
+            @*<td>@Html.ActionLink(customer.Name, "Details", "Movies")</td>*@
+
+        </tr>
+    }
+
+</table>
+}
+
+
+
